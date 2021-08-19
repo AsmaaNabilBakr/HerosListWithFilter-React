@@ -1,0 +1,199 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
+
+@mixin ComponentContainer {
+  background: #fff;
+  color: #333 !important;
+  margin: 20px 0 10px 0;
+  border-radius: 1px;
+}
+
+
+/***************************************** Heros Page ********************************************/
+
+.HerosContainer {
+  .HerosContainerRow {
+    margin-right: -100px;
+    margin-left: -100px;
+    .showFilters{
+      margin-left: 0;
+      margin-right:0 ;
+      transition: all .9s;
+    }
+    .hideFilters{
+      margin-left: -27% !important;
+      margin-right: 2% !important;
+      transition: all .9s;
+    }
+  }
+}
+
+/***************************************** Filter Section ********************************************/
+.filterContainer {
+  @include ComponentContainer;
+  min-height: 95vh;
+  padding-bottom: 15px;
+  margin-right: -15px;
+  .filterHeader {
+    font-weight: 600;
+    padding: 15px 0;
+    border-bottom: 2px solid #d2cfcf;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 35px !important;
+  }
+  .filterForm {
+    padding: 0px 15px;
+    font-family: monospace;
+    font-weight: normal !important;
+    color: #333 !important;
+    input {
+      border-bottom: 2px solid #ced4da99 !important;
+      &:focus {
+        box-shadow: none !important;
+        border-bottom: 2px solid #4285f4 !important;
+      }
+    }
+    .countrySelect {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      label {
+        color: #757575 !important;
+        font-size: 16px;
+      }
+      select {
+        border: none !important;
+        border-bottom: 2px solid #ced4da99 !important;
+        border-radius: 0;
+        padding: 0 !important;
+        &:focus {
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+          border-bottom: 2px solid #4285f4 !important;
+        }
+      }
+    }
+  }
+  .filterActionBtn {
+    border: none;
+    border-radius: 4px;
+    background: #4285f4;
+    color: #fff;
+    height: 39px;
+    padding: 0 6%;
+    font-size: 15px;
+    font-family: -webkit-pictograph;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    img {
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+    }
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+
+/***************************************** Table List Section ********************************************/
+.tableListContainer {
+  @include ComponentContainer;
+  position: relative;
+  .tableHeader {
+    height: 50px;
+    // border-bottom: 1px solid #e1e5e9;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 0 1%;
+    align-items: center;
+    label {
+      margin-bottom: 0 !important;
+      width: 30%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      &::after {
+        content: "";
+        width: 1px;
+        height: 50px;
+        margin-left: 20%;
+        background: #e1e5e9;
+      }
+    }
+    .tableActions {
+      img {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+  .tableContent {
+    div[data-test="datatable-entries"] {
+      display: none !important;
+    }
+    div[data-test="datatable-info"]{
+      opacity:0 !important;
+    }
+    div[data-test="datatable-search"] {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      right: 6%;
+      top: 1%;
+      .mdb-datatable-filter {
+        width: 74%;
+        input {
+          border: none !important;
+          border-bottom: 1px solid #ced4da !important;
+          border-radius: 0 !important;
+          &:focus {
+            box-shadow: none !important;
+            border-bottom: 1px solid #4285f4 !important;
+          }
+        }
+      }
+    }
+    .table {
+      margin-bottom: 0 !important;
+
+      thead {
+        background: #e1e1e159;
+        color: #666;
+        &[data-test="table-foot"] {
+          display: none !important;
+        }
+        th {
+          border-right: 1px solid #e1e5e9;
+          text-align: left;
+          font-family: monospace;
+          &:last-child {
+            border-right: none !important;
+          }
+        }
+      }
+      tbody {
+        border-bottom: 1px solid #e1e5e9;
+        td {
+          border-right: 1px solid #e1e5e9;
+          color: #000;
+          font-family: monospace;
+          text-align: left;
+          &:last-child {
+            border-right: none !important;
+          }
+        }
+      }
+    }
+  }
+}
